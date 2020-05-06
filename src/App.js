@@ -1,7 +1,7 @@
 import React from "react";
 
 //pages
-import Homepage from "./pages/homepage";
+import Homepage from "./pages/Homepage";
 
 //styles
 import "./App.css";
