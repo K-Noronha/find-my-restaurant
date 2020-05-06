@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://opentable.herokuapp.com/api/restaurants";
+const url = "https://opentable.herokuapp.com/api/restaurants";
 
 export async function fetchRestaurants(city) {
   try {
