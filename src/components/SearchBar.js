@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { fetchRestaurants } from "../config";
 
 const SearchBar = ({}) => {
   const [validate, handleValidate] = useState(false);
@@ -9,6 +10,10 @@ const SearchBar = ({}) => {
 
     if (inputCity.value) {
       console.log("inputCity.value", inputCity.value);
+
+      fetchRestaurants(inputCity.value).then((res) =>
+        console.log("res.data", res.data)
+      );
     } else {
       inputCity.focus();
       handleValidate(true);
