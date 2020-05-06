@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
-const allReducers = combineReducers({});
+import restaurantsReducer from "./restaurants";
+
+const allReducers = combineReducers({ restaurantsReducer });
 
 export default allReducers;

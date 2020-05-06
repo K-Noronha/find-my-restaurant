@@ -1,7 +1,11 @@
 import React, { useState } from "react";
-import { fetchRestaurants } from "../config";
+import { connect } from "react-redux";
+import { searchRestaurants } from "../store/actions/restaurants";
 
-const SearchBar = ({}) => {
+/**
+ * Form that perform a city search on the open table API.
+ */
+const SearchBar = ({ searchRestaurants }) => {
   const [validate, handleValidate] = useState(false);
 
   const handleSubmit = (e) => {
@@ -9,11 +13,7 @@ const SearchBar = ({}) => {
     e.preventDefault();
 
     if (inputCity.value) {
-      console.log("inputCity.value", inputCity.value);
-
-      fetchRestaurants(inputCity.value).then((res) =>
-        console.log("res.data", res.data)
-      );
+      searchRestaurants(inputCity.value);
     } else {
       inputCity.focus();
       handleValidate(true);
@@ -35,4 +35,9 @@ const SearchBar = ({}) => {
   );
 };
 
-export default SearchBar;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    searchRestaurants: (e) => dispatch(searchRestaurants(e)),
+  };
+};
+export default connect(null, mapDispatchToProps)(SearchBar);
