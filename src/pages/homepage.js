@@ -12,7 +12,7 @@ const Homepage = ({ list, filteredList }) => {
       <h1>HOMEPAGE</h1>
       <SearchBar />
       {list.length > 0 ? <RefineSearch /> : null}
-      {list.length > 0 && filteredList.length == 0 ? (
+      {list.length > 0 && filteredList.length === 0 ? (
         <h3>Try Refining your search</h3>
       ) : null}
       <RestaurantList list={restaurants} />
