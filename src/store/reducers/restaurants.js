@@ -11,6 +11,12 @@ const restaurantsReducer = (state = restaurants, { type, payload }) => {
         list: payload.restaurants,
         filteredList: [],
       };
+    case "CLEAR":
+      return {
+        ...state,
+        list: [],
+        filteredList: [],
+      };
     case "FILTER":
       var filterBy = payload.toLowerCase();
       var filteredList = state.list.filter((element) => {

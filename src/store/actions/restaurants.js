@@ -6,6 +6,12 @@ export const filterRestuarants = (payload) => {
     payload,
   };
 };
+export const clearRestuarants = (payload) => {
+  return {
+    type: "CLEAR",
+    payload,
+  };
+};
 
 const updateRestaurants = (payload) => {
   return {

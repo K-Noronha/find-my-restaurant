@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { searchRestaurants } from "../store/actions/restaurants";
+import {
+  searchRestaurants,
+  clearRestuarants,
+} from "../store/actions/restaurants";
 
 /**
  * Form that perform a city search on the open table API.
  */
-const SearchBar = ({ searchRestaurants }) => {
+const SearchBar = ({ searchRestaurants, clearRestuarants }) => {
   const [validate, handleValidate] = useState(false);
 
   const handleSubmit = (e) => {
@@ -16,6 +19,7 @@ const SearchBar = ({ searchRestaurants }) => {
       searchRestaurants(inputCity.value);
     } else {
       inputCity.focus();
+      clearRestuarants();
       handleValidate(true);
       setTimeout(() => {
         handleValidate(false);
@@ -24,12 +28,19 @@ const SearchBar = ({ searchRestaurants }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="inputCity">Find Restaurants by City</label>
-        <input type="text" placeholder="Enter city" id="inputCity" />
-        {validate ? <h3>No city has been entered</h3> : null}
-        <input type="submit" value="Search" />
+    <div className="SearchBar">
+      <form className="SearchBar__Form" onSubmit={handleSubmit}>
+        <div>
+          <label htmlFor="inputCity">Find Restaurants by City:</label>
+          <input type="text" placeholder="Enter city" id="inputCity" />
+          <input className="SearchBar__Button" type="submit" value="Search" />
+        </div>
+
+        {validate ? (
+          <h4 className="warning">No city has been entered</h4>
+        ) : (
+          <></>
+        )}
       </form>
     </div>
   );
@@ -38,6 +49,7 @@ const SearchBar = ({ searchRestaurants }) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     searchRestaurants: (e) => dispatch(searchRestaurants(e)),
+    clearRestuarants: () => dispatch(clearRestuarants()),
   };
 };
 export default connect(null, mapDispatchToProps)(SearchBar);

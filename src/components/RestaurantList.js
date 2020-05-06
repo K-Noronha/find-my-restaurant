@@ -4,7 +4,7 @@ import RestaurantCard from "./RestaurantCard";
 
 const RestaurantList = ({ list }) => {
   return (
-    <div>
+    <div className="List">
       {list && list.length > 0 ? (
         list.map((item) => (
           <RestaurantCard
@@ -15,7 +15,7 @@ const RestaurantList = ({ list }) => {
           />
         ))
       ) : (
-        <h1>Try searching a new city...</h1>
+        <h2 className="List__Empty">Try searching a new city...</h2>
       )}
     </div>
   );
