@@ -1,0 +1,67 @@
+@import "./variables.scss";
+
+.Homepage {
+  display: flex;
+  justify-content: center;
+
+  &__Container {
+    width: 70%;
+  }
+
+  &__Title {
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    font-size: 3rem;
+    color: $primarycolor;
+    text-decoration: underline;
+
+    @media (min-width: 425px) {
+      font-size: 2.5rem;
+    }
+    @media (min-width: 320px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.List {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__Empty {
+    color: $primarycolor;
+  }
+}
+
+.Card {
+  border: thick solid $primarycolor;
+  border-radius: 5px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 12rem;
+  background-color: $secondarycolor;
+  color: $primarycolor;
+}
+
+.SearchBar {
+  display: flex;
+  justify-content: center;
+  &__Form {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  &__Button {
+    padding: 5px 20px;
+    margin: 5px;
+    background-color: $primarycolor;
+    color: $white;
+
+    &:hover {
+      background-color: $secondarycolor;
+      color: $black;
+    }
+  }
+}
