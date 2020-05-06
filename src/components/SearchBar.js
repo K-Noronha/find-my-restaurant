@@ -33,7 +33,12 @@ const SearchBar = ({ searchRestaurants, clearRestuarants }) => {
         <div>
           <label htmlFor="inputCity">Find Restaurants by City:</label>
           <input type="text" placeholder="Enter city" id="inputCity" />
-          <input className="SearchBar__Button" type="submit" value="Search" />
+          <input
+            className="SearchBar__Button"
+            type="submit"
+            value="Search"
+            data-testid="submit-button"
+          />
         </div>
 
         {validate ? (
